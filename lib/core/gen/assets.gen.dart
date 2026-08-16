@@ -70,6 +70,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/OBJECTS.svg
   SvgGenImage get objects => const SvgGenImage('assets/images/OBJECTS.svg');
 
+  /// File path: assets/images/Rectangle 148.png
+  AssetGenImage get rectangle148 =>
+      const AssetGenImage('assets/images/Rectangle 148.png');
+
   /// File path: assets/images/SebhaBody.png
   AssetGenImage get sebhaBody =>
       const AssetGenImage('assets/images/SebhaBody.png');
@@ -79,6 +83,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/Shape-07.svg
   SvgGenImage get shape07 => const SvgGenImage('assets/images/Shape-07.svg');
+
+  /// File path: assets/images/Vector.png
+  AssetGenImage get vector => const AssetGenImage('assets/images/Vector.png');
 
   /// File path: assets/images/bearish.svg
   SvgGenImage get bearish => const SvgGenImage('assets/images/bearish.svg');
@@ -90,6 +97,22 @@ class $AssetsImagesGen {
   /// File path: assets/images/ic_splash.png
   AssetGenImage get icSplash =>
       const AssetGenImage('assets/images/ic_splash.png');
+
+  /// File path: assets/images/img_bottom_decoration.png
+  AssetGenImage get imgBottomDecoration =>
+      const AssetGenImage('assets/images/img_bottom_decoration.png');
+
+  /// File path: assets/images/img_left_corner.png
+  AssetGenImage get imgLeftCorner =>
+      const AssetGenImage('assets/images/img_left_corner.png');
+
+  /// File path: assets/images/img_most_recent.png
+  AssetGenImage get imgMostRecent =>
+      const AssetGenImage('assets/images/img_most_recent.png');
+
+  /// File path: assets/images/img_right_corner.png
+  AssetGenImage get imgRightCorner =>
+      const AssetGenImage('assets/images/img_right_corner.png');
 
   /// File path: assets/images/islami_onboarding.png
   AssetGenImage get islamiOnboarding =>
@@ -131,6 +154,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/quranSura.svg
   SvgGenImage get quranSura => const SvgGenImage('assets/images/quranSura.svg');
+
+  /// File path: assets/images/quran_background.png
+  AssetGenImage get quranBackground =>
+      const AssetGenImage('assets/images/quran_background.png');
 
   /// File path: assets/images/quran_bg.png
   AssetGenImage get quranBg =>
@@ -179,12 +206,18 @@ class $AssetsImagesGen {
     mosque01,
     mosque02,
     objects,
+    rectangle148,
     sebhaBody,
     shape04,
     shape07,
+    vector,
     bearish,
     hadithBg,
     icSplash,
+    imgBottomDecoration,
+    imgLeftCorner,
+    imgMostRecent,
+    imgRightCorner,
     islamiOnboarding,
     kabba,
     logoIslami,
@@ -196,6 +229,7 @@ class $AssetsImagesGen {
     onboarding5,
     prayTimeBg,
     quranSura,
+    quranBackground,
     quranBg,
     radio,
     radioBg,

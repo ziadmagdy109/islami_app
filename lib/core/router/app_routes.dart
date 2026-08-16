@@ -7,4 +7,5 @@ class AppRoutes {
   static const String tasbeeh = '/tasbeeh';
   static const String radio = '/radio';
   static const String time = '/time';
+  static const String sura = "/sura";
 }

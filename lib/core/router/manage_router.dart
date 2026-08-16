@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami/core/router/app_routes.dart';
 import 'package:islami/features/layout/presentation/views/layout_view.dart';
 import 'package:islami/features/onboarding/presentation/views/on_boarding_view.dart';
+import 'package:islami/features/quran/presentation/views/sura_view.dart';
 import 'package:islami/features/splash/splash_view.dart';
 
 class ManageRouter {
@@ -20,6 +21,11 @@ class ManageRouter {
       case AppRoutes.layout:
         return MaterialPageRoute(
           builder: (_) => const LayoutView(),
+          settings: settings,
+        );
+      case AppRoutes.sura:
+        return MaterialPageRoute(
+          builder: (_) => const SuraView(),
           settings: settings,
         );
       case AppRoutes.quran:

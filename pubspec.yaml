@@ -34,6 +34,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/files/quran/
   fonts:
     - family: Janna LT
       fonts:
