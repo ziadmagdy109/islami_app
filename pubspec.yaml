@@ -15,6 +15,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   smooth_page_indicator: ^2.0.1
+  carousel_slider: ^5.1.2
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +36,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/files/quran/
+    - assets/files/Hadeeth/
   fonts:
     - family: Janna LT
       fonts:
