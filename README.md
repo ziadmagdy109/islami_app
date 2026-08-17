@@ -8,10 +8,37 @@ The app brings together Quran, Hadith, Sebha, Islamic Radio, Prayer Times, and m
 
 # 📱 Preview
 
-| Home                                         | Hadith                                         | Sebha                                         | Radio                                         | Prayer Times                                 |
-| -------------------------------------------- | ---------------------------------------------- | --------------------------------------------- | --------------------------------------------- | -------------------------------------------- |
-| <img width="1344" height="2992" alt="Image" src="https://github.com/user-attachments/assets/d449c012-7fc1-4cc5-8833-e1405bbe5834" /> | <img width="1344" height="2992" alt="Image" src="https://github.com/user-attachments/assets/955cf929-38f7-40f7-9eae-1e1e4c2803f3" /> | <img width="1344" height="2992" alt="Image" src="https://github.com/user-attachments/assets/8d10ac0f-6916-4e38-854e-37a4717ecdf7" /> | <img width="1344" height="2992" alt="Radio" src="https://github.com/user-attachments/assets/98a77297-9d34-497f-80fa-8ceeef7d390d" />
- | <img width="1344" height="2992" alt="PrayerTimes" src="https://github.com/user-attachments/assets/e7bcaa6f-45db-4e3d-8f3d-6aae28a73a47" />
+<div align="center">
+
+### 🏠 Home
+
+<img src="https://github.com/user-attachments/assets/d449c012-7fc1-4cc5-8833-e1405bbe5834" width="220"/>
+
+---
+
+### 📚 Hadith
+
+<img src="https://github.com/user-attachments/assets/955cf929-38f7-40f7-9eae-1e1e4c2803f3" width="220"/>
+
+---
+
+### 📿 Sebha
+
+<img src="https://github.com/user-attachments/assets/8d10ac0f-6916-4e38-854e-37a4717ecdf7" width="220"/>
+
+---
+
+### 📻 Radio
+
+<img src="https://github.com/user-attachments/assets/98a77297-9d34-497f-80fa-8ceeef7d390d" width="220"/>
+
+---
+
+### 🕐 Prayer Times
+
+<img src="https://github.com/user-attachments/assets/e7bcaa6f-45db-4e3d-8f3d-6aae28a73a47" width="220"/>
+
+</div>
 
 ---
 
