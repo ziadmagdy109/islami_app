@@ -367,7 +367,7 @@ The project also focuses on demonstrating:
 
 GitHub:
 
-https://github.com/ziadmagdy109
+https://github.com/ziadmagdy109/islami_app
 
 LinkedIn:
 
