@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/core/cache/cached_data.dart';
 import 'package:islami/core/gen/assets.gen.dart';
 import 'package:islami/core/router/app_routes.dart';
 import 'package:islami/core/theme/app_colors.dart';
@@ -694,8 +695,59 @@ final List<SuraDataModel> quranSuras = [
   ),
 ];
 
-class QuranView extends StatelessWidget {
+class QuranView extends StatefulWidget {
   const QuranView({super.key});
+
+  @override
+  State<QuranView> createState() => _QuranViewState();
+}
+
+class _QuranViewState extends State<QuranView> {
+  @override
+  void initState() {
+    super.initState();
+    _loadRecentsSura();
+  }
+
+  Future<void> _loadRecentsSura() async {
+    final recentNumbers = await CachedData.getRecentSuras();
+
+    final result = recentNumbers
+        .map(
+          (number) =>
+              quranSuras.firstWhere((sura) => sura.suraNumber == number),
+        )
+        .toList();
+
+    if (!mounted) return;
+    setState(() {
+      _recentlyData = result;
+    });
+  }
+
+  Future<void> _openSura(SuraDataModel suraDataModel) async {
+    await CachedData.addSura(suraDataModel.suraNumber);
+    Navigator.pushNamed(context, AppRoutes.sura, arguments: suraDataModel);
+    _loadRecentsSura();
+  }
+
+  void _onSearchChanged(String value) {
+    final query = value.trim();
+
+    setState(() {
+      if (query.isEmpty) {
+        _filterdList = quranSuras;
+      } else {
+        _filterdList = quranSuras.where((sura) {
+          return (sura.suraNameEn.toLowerCase().contains(query.toLowerCase()) ||
+              sura.suraNameAr.contains(query));
+        }).toList();
+      }
+    });
+  }
+
+  List<SuraDataModel> _filterdList = quranSuras;
+  List<SuraDataModel> _recentlyData = [];
 
   @override
   Widget build(BuildContext context) {
@@ -710,40 +762,43 @@ class QuranView extends StatelessWidget {
                 Assets.images.islamiOnboarding.image(height: 140, width: 300),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: SearchQuran(),
+                  child: SearchQuran(onChanged: _onSearchChanged),
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      "Most Recently",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight(700),
-                        color: AppColors.white,
+                if (_recentlyData.isNotEmpty)
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        "Most Recently",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight(700),
+                          color: AppColors.white,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 150,
-                  child: ListView.separated(
-                    physics: ClampingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    itemBuilder: (context, index) {
-                      return MostRecentlyWidget(
-                        onTap: () {},
-                        suraDataModel: quranSuras[index],
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return SizedBox(width: 10);
-                    },
-                    itemCount: quranSuras.length,
+                if (_recentlyData.isNotEmpty)
+                  SizedBox(
+                    height: 150,
+                    child: ListView.separated(
+                      physics: ClampingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      itemBuilder: (context, index) {
+                        return MostRecentlyWidget(
+                          suraDataModel: _recentlyData[index],
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return SizedBox(width: 10);
+                      },
+                      itemCount: _recentlyData.length,
+                    ),
                   ),
-                ),
+
+                ///
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
@@ -767,19 +822,15 @@ class QuranView extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return SurasListWidget(
                         onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            AppRoutes.sura,
-                            arguments: quranSuras[index],
-                          );
+                          _openSura(_filterdList[index]);
                         },
-                        suraDataModel: quranSuras[index],
+                        suraDataModel: _filterdList[index],
                       );
                     },
                     separatorBuilder: (context, index) {
                       return Divider(indent: 20, endIndent: 20);
                     },
-                    itemCount: quranSuras.length,
+                    itemCount: _filterdList.length,
                   ),
                 ),
               ],
